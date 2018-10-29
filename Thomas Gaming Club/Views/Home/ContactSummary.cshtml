@@ -1,0 +1,32 @@
+﻿@model Thomas_Gaming_Club.Models.Contact
+
+@{
+    ViewBag.Title = "Contact Summary";
+}
+@section Styles {
+    <link href="@Url.Content("~/Content/contactSummary.css")" rel="stylesheet" type="text/css" />
+}
+
+<!-- SUBMIT TABLE -->
+<div class="submit-display">
+    <label for="submit-display">This is your submitted information</label>
+    <table id="submit-table">
+        <tr>
+            <th>Contact</th>
+            <th>Connection</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Phone</th>
+            <th>Message</th>
+        </tr>
+        <tr>
+            <td> @Model.PreferredContact</td>
+            <td> @Model.PreferredTitle</td>
+            <td> @Model.FirstName @Model.LastName</td>
+            <td> @Model.Email</td>
+            <td> @Model.Phone</td>
+            <td> @Model.Message</td>
+        </tr>
+    </table>
+</div>
+<!-- END SUBMIT TABLE -->
