@@ -25,20 +25,26 @@ namespace Thomas_Gaming_Club.Controllers
             return View();
         }
 
-       /* [HttpPost]
-        public ActionResult Contact(Contact inquiry)
+        [HttpGet]
+        public ViewResult AllContacts()
         {
-            if (ModelState.IsValid)
-            {
-                // TODO: Email response to the party organizer
-                return View("ContactSummary", inquiry);
-            }
-            else
-            {
-                // there is a validation error
-                return View();
-            }
-        }*/
+            return View();
+        }
+
+        /* [HttpPost]
+         public ActionResult Contact(Contact inquiry)
+         {
+             if (ModelState.IsValid)
+             {
+                 // TODO: Email response to the party organizer
+                 return View("ContactSummary", inquiry);
+             }
+             else
+             {
+                 // there is a validation error
+                 return View();
+             }
+         }*/
 
         [HttpPost]
         public ActionResult Contact(List<Contact> data)
@@ -61,7 +67,7 @@ namespace Thomas_Gaming_Club.Controllers
            return View("ContactSummary");
         }
 
-        public List<Contact> makeContacts()
+        private List<Contact> makeContacts()
         {
             List<Contact> contacts = new List<Contact>
             {
@@ -85,6 +91,28 @@ namespace Thomas_Gaming_Club.Controllers
                     Email = "fleshwound@circus.com",
                     Phone = "",
                     Message = "What is the airspeed velocity of an unladen swallow?"
+                },
+
+                new Contact
+                {
+                    PreferredContact = "The Officer of Operations",
+                    PreferredTitle = "Student",
+                    FirstName = "Barron",
+                    LastName = "Trump",
+                    Email = "notmydad@gov.us",
+                    Phone = "",
+                    Message = "Help me."
+                },
+
+                new Contact
+                {
+                    PreferredContact = "The Officer of Operations",
+                    PreferredTitle = "Prospective Student",
+                    FirstName = "David",
+                    LastName = "Sugden",
+                    Email = "its4@thomas.edu",
+                    Phone = "",
+                    Message = "Can I please be a part of your super awesome club?"
                 }
 
             };
