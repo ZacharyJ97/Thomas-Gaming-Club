@@ -4,11 +4,15 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using Thomas_Gaming_Club.Models;
+using MusicStore.Data_Contexts;
+using System.Net;
 
 namespace Thomas_Gaming_Club.Controllers
 {
     public class HomeController : Controller
     {
+        private EFDbContext db = new EFDbContext();
+
         public ViewResult Index()
         {
             return View();
@@ -28,25 +32,44 @@ namespace Thomas_Gaming_Club.Controllers
         [HttpGet]
         public ViewResult AllContacts()
         {
+            var Contacts = GetContacts();
             return View();
         }
 
-        /* [HttpPost]
-         public ActionResult Contact(Contact inquiry)
-         {
+        [HttpPost]
+        public ActionResult Contact(Contact inquiry)
+        {
              if (ModelState.IsValid)
              {
-                 // TODO: Email response to the party organizer
-                 return View("ContactSummary", inquiry);
+
+                //Send info to database/table here?
+                return View("ContactSummary", inquiry);
              }
              else
              {
                  // there is a validation error
                  return View();
              }
-         }*/
+         }
+        private IQueryable<Contact> GetContacts()
+        {
+            var contacts = from conts in db.Contacts
+                         select new Contact
+                         {
+                             PreferredContact = conts.PreferredContact,
+                             PreferredTitle = conts.PreferredTitle,
+                             FirstName = conts.FirstName,
+                             LastName = conts.LastName,
+                             Email = conts.Email,
+                             Phone = conts.Phone,
+                             Message = conts.Message
+                        };
 
-        [HttpPost]
+            return contacts;
+        }
+
+
+        /*[HttpPost]
         public ActionResult Contact(List<Contact> data)
         {
             data = this.makeContacts();
@@ -65,7 +88,7 @@ namespace Thomas_Gaming_Club.Controllers
                 }
             }
            return View("ContactSummary");
-        }
+        }*/
 
         private List<Contact> makeContacts()
         {

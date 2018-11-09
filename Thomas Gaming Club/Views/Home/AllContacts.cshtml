@@ -4,71 +4,32 @@
     ViewBag.Title = "AllContacts";
 }
 
-<h2>AllContacts</h2>
+<h2>All Contacts</h2>
 
-<div>
-    <h4>Contact</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.PreferredContact)
-        </dt>
+@section Styles {
+    <link href="@Url.Content("~/Content/AllContactsStyle.css")" rel="stylesheet" type="text/css" />
+}
 
-        <dd>
-            @Html.DisplayFor(model => model.PreferredContact)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.PreferredTitle)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.PreferredTitle)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.FirstName)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.FirstName)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.LastName)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.LastName)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Email)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Email)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Phone)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Phone)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Message)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Message)
-        </dd>
-
-    </dl>
+<!-- SUBMIT TABLE -->
+<div class="submit-display">
+    <label for="submit-display">This is your submitted information</label>
+    <table id="submit-table">
+        <tr>
+            <th>Contact</th>
+            <th>Connection</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Phone</th>
+            <th>Message</th>
+        </tr>
+        <tr>
+            <td> @Model.PreferredContact</td>
+            <td> @Model.PreferredTitle</td>
+            <td> @Model.FirstName @Model.LastName</td>
+            <td> @Model.Email</td>
+            <td> @Model.Phone</td>
+            <td> @Model.Message</td>
+        </tr>
+    </table>
 </div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>
+<!-- END SUBMIT TABLE -->
