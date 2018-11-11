@@ -90,7 +90,7 @@ namespace Thomas_Gaming_Club.Controllers
            return View("ContactSummary");
         }*/
 
-        private List<Contact> makeContacts()
+        /*private List<Contact> makeContacts()
         {
             List<Contact> contacts = new List<Contact>
             {
@@ -141,7 +141,7 @@ namespace Thomas_Gaming_Club.Controllers
             };
             return contacts;
 
-        }
+        }*/
 
     }
 }
