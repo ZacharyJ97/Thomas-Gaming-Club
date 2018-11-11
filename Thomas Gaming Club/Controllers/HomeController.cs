@@ -33,22 +33,23 @@ namespace Thomas_Gaming_Club.Controllers
         public ViewResult AllContacts()
         {
             var Contacts = GetContacts();
-            return View();
+            return View(Contacts);
         }
 
         [HttpPost]
         public ActionResult Contact(Contact inquiry)
         {
-             if (ModelState.IsValid)
+             if (ModelState.IsValid && TryUpdateModel(inquiry))
              {
-
+                db.Contacts.Add(inquiry);
+                db.SaveChanges();
                 //Send info to database/table here?
                 return View("ContactSummary", inquiry);
              }
              else
              {
                  // there is a validation error
-                 return View();
+                 return View(inquiry);
              }
          }
         private IQueryable<Contact> GetContacts()
