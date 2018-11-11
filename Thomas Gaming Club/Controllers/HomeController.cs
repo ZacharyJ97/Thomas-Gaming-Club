@@ -4,7 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using Thomas_Gaming_Club.Models;
-using MusicStore.Data_Contexts;
+using Thomas_Gaming_Club.Data_Contexts;
 using System.Net;
 
 namespace Thomas_Gaming_Club.Controllers
