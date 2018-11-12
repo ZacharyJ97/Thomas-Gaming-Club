@@ -23,6 +23,7 @@ namespace Thomas_Gaming_Club.Models
         [Required(ErrorMessage = "Please enter your email address")]
         [RegularExpression(".+\\@.+\\..+",
             ErrorMessage = "The email address entered is not valid")]
+        [Key]
         public string Email { get; set; }
 
         public string Phone { get; set; }

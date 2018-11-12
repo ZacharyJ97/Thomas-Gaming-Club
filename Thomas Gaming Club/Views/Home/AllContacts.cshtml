@@ -4,7 +4,7 @@
     ViewBag.Title = "AllContacts";
 }
 
-<h2>All Contacts</h2>
+<h2>All Contact Submissions</h2>
 
 @section Styles {
     <link href="@Url.Content("~/Content/AllContactsStyle.css")" rel="stylesheet" type="text/css" />
@@ -22,6 +22,7 @@
             <th>Phone</th>
             <th>Message</th>
         </tr>
+
         <tr>
             <td> @Model.PreferredContact</td>
             <td> @Model.PreferredTitle</td>
@@ -30,6 +31,7 @@
             <td> @Model.Phone</td>
             <td> @Model.Message</td>
         </tr>
+
     </table>
 </div>
 <!-- END SUBMIT TABLE -->
