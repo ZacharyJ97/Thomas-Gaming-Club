@@ -43,7 +43,7 @@ namespace Thomas_Gaming_Club.Controllers
              {
                 db.Contacts.Add(inquiry);
                 db.SaveChanges();
-                //Send info to database/table here?
+               
                 return View("ContactSummary", inquiry);
              }
              else
@@ -52,6 +52,8 @@ namespace Thomas_Gaming_Club.Controllers
                  return View(inquiry);
              }
          }
+
+        //Ignore all commented code from here down, is extra methods for other trials previously conducted
         /*private IQueryable<Contact> GetContacts()
         {
             var contacts = from conts in db.Contacts

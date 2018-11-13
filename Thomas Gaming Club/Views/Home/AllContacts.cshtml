@@ -5,13 +5,13 @@
 <h2>All Contact Submissions</h2>
 
 @section Styles {
-    <link href="@Url.Content("~/Content/AllContactsStyle.css")" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content("~/Content/ContactSummary.css")" rel="stylesheet" type="text/css" />
 }
 
 <!-- SUBMIT TABLE -->
-<div class="database-display">
-    <label for="database-display">This is your submitted information</label>
-    <table id="database-table">
+<div class="submit-display">
+    <label for="submit-display">This is your submitted information</label>
+    <table id="submit-table">
         <tr>
             <th>Contact</th>
             <th>Connection</th>
@@ -20,19 +20,19 @@
             <th>Phone</th>
             <th>Message</th>
         </tr>
-        @{
-            foreach (var data in ViewBag.Contacts)
+        
+            @foreach (var data in ViewBag.Contacts)
             {
                 <tr>
-                    <td> data.PreferredContact</td>
-                    <td> data.PreferredTitle</td>
-                    <td> data.FirstName data.LastName</td>
-                    <td> data.Email</td>
-                    <td> data.Phone</td>
-                    <td> data.Message</td>
+                    <td> @data.PreferredContact </td>
+                    <td> @data.PreferredTitle</td>
+                    <td> @data.FirstName @data.LastName</td>
+                    <td> @data.Email</td>
+                    <td> @data.Phone</td>
+                    <td> @data.Message</td>
                 </tr>
             }
-        }
+        
 
     </table>
 </div>
