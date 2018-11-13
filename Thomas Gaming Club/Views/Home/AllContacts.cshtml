@@ -1,6 +1,4 @@
-﻿@model Thomas_Gaming_Club.Models.Contact
-
-@{
+﻿@{
     ViewBag.Title = "AllContacts";
 }
 
@@ -11,9 +9,9 @@
 }
 
 <!-- SUBMIT TABLE -->
-<div class="submit-display">
-    <label for="submit-display">This is your submitted information</label>
-    <table id="submit-table">
+<div class="database-display">
+    <label for="database-display">This is your submitted information</label>
+    <table id="database-table">
         <tr>
             <th>Contact</th>
             <th>Connection</th>
@@ -22,15 +20,19 @@
             <th>Phone</th>
             <th>Message</th>
         </tr>
-
-        <tr>
-            <td> @Model.PreferredContact</td>
-            <td> @Model.PreferredTitle</td>
-            <td> @Model.FirstName @Model.LastName</td>
-            <td> @Model.Email</td>
-            <td> @Model.Phone</td>
-            <td> @Model.Message</td>
-        </tr>
+        @{
+            foreach (var data in ViewBag.Contacts)
+            {
+                <tr>
+                    <td> data.PreferredContact</td>
+                    <td> data.PreferredTitle</td>
+                    <td> data.FirstName data.LastName</td>
+                    <td> data.Email</td>
+                    <td> data.Phone</td>
+                    <td> data.Message</td>
+                </tr>
+            }
+        }
 
     </table>
 </div>

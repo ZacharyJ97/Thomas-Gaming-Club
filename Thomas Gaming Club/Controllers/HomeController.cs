@@ -32,8 +32,8 @@ namespace Thomas_Gaming_Club.Controllers
         [HttpGet]
         public ViewResult AllContacts()
         {
-            var Contacts = GetContacts();
-            return View(Contacts);
+            ViewBag.Contacts = db.Contacts.ToList();
+            return View(ViewBag.Contacts);
         }
 
         [HttpPost]
@@ -52,7 +52,7 @@ namespace Thomas_Gaming_Club.Controllers
                  return View(inquiry);
              }
          }
-        private IQueryable<Contact> GetContacts()
+        /*private IQueryable<Contact> GetContacts()
         {
             var contacts = from conts in db.Contacts
                          select new Contact
@@ -67,7 +67,7 @@ namespace Thomas_Gaming_Club.Controllers
                         };
 
             return contacts;
-        }
+        }*/
 
 
         /*[HttpPost]
